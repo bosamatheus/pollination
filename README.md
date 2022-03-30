@@ -1,2 +1,3 @@
-# pollination
-Pollination app to create polls to collect feedback.
+# Pollination
+
+Pollination app to create polls to collect votes and feedback.
