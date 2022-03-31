@@ -6,7 +6,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/bosamatheus/pollination/votes-api/handler"
+	"github.com/bosamatheus/pollination/voting-api/handler"
 	fiber "github.com/gofiber/fiber/v2"
 	fiberCORS "github.com/gofiber/fiber/v2/middleware/cors"
 	fiberLogger "github.com/gofiber/fiber/v2/middleware/logger"
