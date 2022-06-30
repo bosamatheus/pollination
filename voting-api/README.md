@@ -1,4 +1,4 @@
-# Pollination - Votes API
+# Pollination - Voting API
 
 REST API that receives votes from users and sends them to a queue to be processed later.
 

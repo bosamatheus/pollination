@@ -8,3 +8,12 @@ GET {{baseUrl}}/health HTTP/1.1
 
 POST {{baseUrl}}/api/v1/votes HTTP/1.1
 Content-Type: application/json
+
+{
+    "option": {
+        "id": 1,
+        "description": "A"
+    },
+    "username": "Dave Grohl",
+    "email": "dave.grohl@gmail.com"
+}

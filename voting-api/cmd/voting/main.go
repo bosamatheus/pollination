@@ -6,7 +6,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/bosamatheus/pollination/voting-api/handler"
+	"github.com/bosamatheus/pollination/voting-api/internal/api/handler"
+	"github.com/bosamatheus/pollination/voting-api/internal/infrastructure/publisher"
+	"github.com/bosamatheus/pollination/voting-api/internal/usecase/voting"
 	fiber "github.com/gofiber/fiber/v2"
 	fiberCORS "github.com/gofiber/fiber/v2/middleware/cors"
 	fiberLogger "github.com/gofiber/fiber/v2/middleware/logger"
@@ -30,11 +32,17 @@ func main() {
 		TimeFormat: time.RFC3339,
 	}))
 
+	// publishers
+	pub := publisher.NewVotingRabbitMQ()
+
+	// use cases
+	service := voting.NewService(pub)
+
 	// routers
 	app.Get("/health", func(c *fiber.Ctx) error {
 		return c.SendString("OK")
 	})
-	app.Post("/api/v1/votes", handler.SendVote())
+	app.Post("/api/v1/votes", handler.SendVote(service))
 
 	// start server
 	go func() {
