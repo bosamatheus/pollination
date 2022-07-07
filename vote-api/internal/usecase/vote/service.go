@@ -1,6 +1,6 @@
-package voting
+package vote
 
-import "github.com/bosamatheus/pollination/voting-api/internal/domain"
+import "github.com/bosamatheus/pollination/vote-api/internal/entity"
 
 // Service is the use case for Voting.
 type Service struct {
@@ -14,6 +14,6 @@ func NewService(pub Publisher) *Service {
 	}
 }
 
-func (s *Service) SendVote(vote *domain.Vote) error {
+func (s *Service) Send(vote entity.Vote) error {
 	return s.Pub.Publish(vote)
 }

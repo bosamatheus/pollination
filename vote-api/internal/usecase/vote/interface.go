@@ -1,15 +1,15 @@
-package voting
+package vote
 
-import "github.com/bosamatheus/pollination/voting-api/internal/domain"
+import "github.com/bosamatheus/pollination/vote-api/internal/entity"
 
 // UseCase interface.
 type UseCase interface {
 	// SendVote sends a Vote to be processed.
-	SendVote(vote *domain.Vote) error
+	Send(vote entity.Vote) error
 }
 
 // Publisher interface.
 type Publisher interface {
 	// Publish publishes a Vote to the queue.
-	Publish(vote *domain.Vote) error
+	Publish(vote entity.Vote) error
 }
